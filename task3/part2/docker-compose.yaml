@@ -1,0 +1,15 @@
+services:
+   redis:
+     image: redis
+     container_name: redis
+     ports:
+       - "6379:6379"
+   app:
+        build: .
+        container_name: main
+        ports:
+            - "80:80"
+        volumes:
+            - .:/app
+        depends_on:
+            - redis
