@@ -1,5 +1,6 @@
 services:
   server1:
+    tty: true 
     build: ./servers
     ports:
       - 8001:80
@@ -11,12 +12,14 @@ services:
       - 8002:80
 
   server3:
+    tty: true 
     build: ./servers
     ports:
       - 8003:80
 
   ansible-master:
     build: .
+    tty: true 
     depends_on:
       - server1
       - server2
