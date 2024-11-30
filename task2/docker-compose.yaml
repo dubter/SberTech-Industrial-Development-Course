@@ -1,14 +1,23 @@
-version: '3.9'
-
 services:
-  app:
-    build: ./src
-    image: task2_app
-    container_name: app
+  server1:
+    build: ./servers
     ports:
-      - 80:80
-  ansible:
-    build: ./ansible
-    command: ansible-playbook DockerPlaybook.yml -i inventory.hosts
-    volumes:
-      - /var/run/docker.sock://var/run/docker.sock
+      - 8001:80
+
+  server2:
+    build: ./servers
+    tty: true
+    ports:
+      - 8002:80
+
+  server3:
+    build: ./servers
+    ports:
+      - 8003:80
+
+  ansible-master:
+    build: .
+    depends_on:
+      - server1
+      - server2
+      - server3
