@@ -35,7 +35,7 @@ pipeline {
 
         stage('Deploy app') {
             steps {
-                sh "cd /ansible && ansible-playbook deploy.yml --extra-vars app_home=${env.WORKSPACE}"
+                sh "cd /inst && ansible-playbook deploy.yml --extra-vars app_home=${env.WORKSPACE}"
             }
         }
 
