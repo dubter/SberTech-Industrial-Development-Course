@@ -34,7 +34,7 @@ services:
     container_name: jenkins
     volumes:
       - ./jenkins_data:/var/jenkins_home
-      - ./ansible:/ansible
+      - ./inst:/inst
     networks:
       - internal_net
 
