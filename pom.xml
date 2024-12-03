@@ -12,7 +12,7 @@
         <sonar.projectName>go-coverage</sonar.projectName>
         <sonar.language>go</sonar.language>
         <sonar.sources>src/main.go</sonar.sources>
-        <sonar.tests>src/app_test.go</sonar.tests>
+        <sonar.tests>src/internal/app/app_test.go</sonar.tests>
         <sonar.go.coverage.reportPaths>src/coverage.out</sonar.go.coverage.reportPaths>
     </properties>
 
