@@ -11,7 +11,7 @@ pipeline {
 
         stage('Run unit tests') {
             steps {
-                sh "cd src && go test ./... -coverprofile=coverage.out"
+                sh "cd src/internal/app &&  go test -coverprofile=coverage.out"
             }
         }
 
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 allure([
                     reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'src/allure-results']]
+                    results: [[path: 'src/internal/app/allure-results']]
                 ])
             }
         }
